@@ -1,0 +1,30 @@
+@function random_range($min, $max) {
+  $rand: random();
+  $random_range: $min + floor($rand * (($max - $min) + 1));
+  @return $random_range;
+}
+
+/**
+ * media queries
+ * @param  {int} $width
+ */
+@mixin mq_max($width){
+	@media only screen and (max-width: $width){@content;}
+}
+
+@mixin mq_min($width){
+	@media only screen and (min-width: $width + 1){@content;}
+}
+
+@mixin mq_min_max($min_width,$max_width){
+	@media only screen and (min-width: $min_width) and (max-width: $max_width){@content;}
+}
+
+$grid__cols: 24;
+@mixin col-generator($bp) {
+	@for $col from 1 through $grid__cols {
+		.col-#{$bp}-#{$col} {
+			flex-basis: calc(100 / calc($grid__cols / $col) ) * 1%;
+		}
+	}
+}
