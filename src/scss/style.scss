@@ -108,7 +108,7 @@ body {
     }
   }
 
-  @for $i from 1 through 28 {
+  @for $i from 1 through 32 {
     $index: $i % length($stamp-colors);
     @if $i % length($stamp-colors) == 0 {
       $index: length($stamp-colors);
